@@ -1,0 +1,36 @@
+import { BrowserRouter as Router, Routes , Route} from 'react-router-dom'
+
+import './styles.css';
+
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Agendamentos from './pages/Agendamentos';
+import Clientes from './pages/Clientes';
+import Colaboradores from './pages/Colaboradores';
+import Servicos from './pages/Servicos';
+import Horarios from './pages/Horarios';
+
+
+const Rotas =  () =>{
+    return (
+    <>
+        <Header/>
+        <div className='countainer-fluid h-100' >
+            <div className='row h-100'>
+                <Router>
+                    <Sidebar />  
+                    <Routes>
+                        <Route exact path='/'  element={<Agendamentos />} />
+                        <Route exact path='/clientes'  element={<Clientes />} />
+                        <Route exact path='/colaboradores'  element={<Colaboradores />} />
+                        <Route exact path='/servicos'  element={<Servicos />} />
+                        <Route exact path='/horarios'  element={<Horarios />} />
+                    </Routes>
+                </Router>
+            </div>
+        </div>
+    </>
+    );
+};
+
+export default Rotas;
