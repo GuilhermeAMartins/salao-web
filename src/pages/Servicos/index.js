@@ -137,7 +137,7 @@ const Servicos = () =>{
                 }}
               >
                 <button>
-                    <SendIcon size='lg'/>
+                  <SendIcon size='lg'/>
                 </button>
               </Uploader>
             </div>
@@ -167,7 +167,7 @@ const Servicos = () =>{
             </Button>
           )}
         </Drawer.Body>
-        </Drawer>
+      </Drawer>
       <Modal
         open={components.confirmDelete}
         onClose={() => setComponent('confirmDelete', false)}
@@ -197,61 +197,60 @@ const Servicos = () =>{
       </Modal>
 
       <div className="row">
-          <div className="col-12">
-              <div className="w-100 d-flex justify-content-between">
-                <h2 className="mb-4 mt-0">Servicos</h2>
-                <div>
-                  <button 
-                    className="btn btn-primary btn-lg"
-                    onClick={()=>{
-                      dispatch(
-                        updateServico({
-                          behavior: "create",
-                        })
-                      )
-                      setComponent('drawer', true)
-                      dispatch(
-                        resetServico()
-                      )
-                    }}
-                  >
-                    <spam className="mdi mdi-plus">Novo Servico</spam>
-                  </button>
-                </div>
-              </div>
-            <Table 
-              loading={form.filtering}
-              data={todosServicos}
-              config={[
-                { label: 'Titulo', key: 'titulo', width: 200, fixed: true},
-                { label: 'R$ Preco', content: (servico) => `R$ ${servico.preco.toFixed(2)}`},
-                { label: '% Comissao', content: (servico) => `${servico.comissao}%`},
-                { label: 'Recorrencia (dias) ', content: (servico) => `${servico.recorrencia} dias`},
-                { label: 'Duracao ', content: (servico) => moment(servico.duracao).format("HH:mm")},
-                { label: 'Status ', key : 'status', content:(servico) =>( 
-                    <Tag color={servico.status === "A" ? 'green' : 'red'}>
-                        {servico.status === "A" ? 'Ativo' : 'Inativo'}
-                    </Tag>)},
-                ]}
-              actions={() => (
-                  <Button appearance="primary" size="xs">Ver informações</Button>
-              )}
-              onRowClick={(servico) => {
-                dispatch( 
-                  updateServico({
-                    behavior: "update",
-                  })
-                )
-                dispatch(
-                  updateServico({
-                    servico,
-                  })
-                )
-                setComponent('drawer', true);
-
-              }}
-            />
+        <div className="col-12">
+          <div className="w-100 d-flex justify-content-between">
+            <h2 className="mb-4 mt-0">Servicos</h2>
+            <div>
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={()=>{
+                  dispatch(
+                    updateServico({
+                      behavior: "create",
+                    })
+                  )
+                  setComponent('drawer', true)
+                  dispatch(
+                    resetServico()
+                  )
+                }}
+              >
+                <spam className="mdi mdi-plus">Novo Servico</spam>
+              </button>
+            </div>
           </div>
+          <Table 
+            loading={form.filtering}
+            data={todosServicos}
+            config={[
+              { label: 'Titulo', key: 'titulo', width: 200, fixed: true},
+              { label: 'R$ Preco', content: (servico) => `R$ ${servico.preco.toFixed(2)}`},
+              { label: '% Comissao', content: (servico) => `${servico.comissao}%`},
+              { label: 'Recorrencia (dias) ', content: (servico) => `${servico.recorrencia} dias`},
+              { label: 'Duracao ', content: (servico) => moment(servico.duracao).format("HH:mm")},
+              { label: 'Status ', key : 'status', content:(servico) =>( 
+                  <Tag color={servico.status === "A" ? 'green' : 'red'}>
+                      {servico.status === "A" ? 'Ativo' : 'Inativo'}
+                  </Tag>)},
+              ]}
+            actions={() => (
+                <Button appearance="primary" size="xs">Ver informações</Button>
+            )}
+            onRowClick={(servico) => {
+              dispatch( 
+                updateServico({
+                  behavior: "update",
+                })
+              )
+              dispatch(
+                updateServico({
+                  servico,
+                })
+              )
+              setComponent('drawer', true);
+            }}
+          />
+        </div>
       </div>
     </div>
   );

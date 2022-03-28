@@ -46,6 +46,7 @@ const Colaborador = () =>{
     dispatch(allColaboradores());
     dispatch(allServicos());
   }, []);
+  
   return (
     <div className="col p-5 overflow-auto w-100">
       <Drawer open={components.drawer} placement={'left'} size='sm' onClose={() => setComponent('drawer', false)}>

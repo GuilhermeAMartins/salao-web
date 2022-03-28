@@ -82,7 +82,6 @@ const Horarios = () => {
         dispatch(filterColaboradores());
     }, [horario.especialidades])
     
-
     return (
         <div className='col p-5 overflow-auto h-100'>
             <Drawer
@@ -108,10 +107,9 @@ const Horarios = () => {
                         </div>
                         <div className='col-6 mt-3'>
                             <b className='d-block'>Horario Inicial</b>
-                            
                             <DatePicker
-                                format="HH:mm" 
                                 block
+                                format="HH:mm" 
                                 hideMinutes={(min) => ![0 ,30].includes(min)}
                                 onChange={(e) => {setHorario('inicio', e);}}
                             />
@@ -266,7 +264,7 @@ const Horarios = () => {
                         events={formatEvents}
                         date={diasSemanaData[moment().day()]}
                         view='week'
-                        style={{ height: 600 }}
+                        style={{ height: 500 }}
                     />
                 </div>
             </div>
