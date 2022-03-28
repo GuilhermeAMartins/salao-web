@@ -265,6 +265,8 @@ const Horarios = () => {
                         date={diasSemanaData[moment().day()]}
                         view='week'
                         style={{ height: 500 }}
+                        onNavigate={() =>{}}
+                        onView={() =>{}}
                     />
                 </div>
             </div>

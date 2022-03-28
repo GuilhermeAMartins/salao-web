@@ -21,7 +21,6 @@ export function* filterAgendamento({ star, end}) {
 
         yield put(updateAgendament(res.agendamentos));
         
-        console.log(res.data);
     } catch (error) {
         alert(error.message);
     }

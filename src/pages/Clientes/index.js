@@ -292,9 +292,9 @@ const Clientes = () =>{
               loading={form.filtering}
               data={todosClientes}
               config={[
-                { label: 'Nome', key: 'nome', width: 200, fixed: true},
-                { label: 'E-mail', key: 'email', width: 200},
-                { label: 'Telefone', key: 'telefone', width: 200},
+                { label: 'Nome', content: (cliente) => cliente.nome, width: 200, fixed: true},
+                { label: 'E-mail', content: (cliente) => cliente.email, width: 200},
+                { label: 'Telefone', content: (cliente) => cliente.telefone, width: 200},
                 { label: 'Sexo', content: (cliente) => cliente.sexo === 'M' ? 'Masculino' : 'Feminino', width: 200},
                 { label: 'Data Cadastro',  content: (cliente) => moment(cliente.dataCadastro).format('DD/MM/YYYY'), width: 200},
               ]}

@@ -10,7 +10,6 @@ const localizer = momentLocalizer(moment)
 const Agendamentos = () =>{
     const dispatch = useDispatch();
     const { agendamentos } = useSelector((state) => state.agendamento);
-    console.log(agendamentos);
     const formatEventos = agendamentos.map(agendamento => ({
         title: `${agendamento.servicoId.titulo} - ${agendamento.clienteId.nome} - ${agendamento.colaboradorId.nome}`, 
         start: moment(agendamento.data).toDate(),
@@ -48,7 +47,7 @@ const Agendamentos = () =>{
                     <Calendar
                         localizer={localizer}
                         onRangeChange={(periodo) =>{
-                            const { start, end} = formatRange(periodo)
+                            const { start, end } = formatRange(periodo)
                             dispatch(filterAgendamento(
                                start,end
                             ));
